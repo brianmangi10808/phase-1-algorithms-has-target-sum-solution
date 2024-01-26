@@ -1,9 +1,18 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers ={};
+  for (const number of array){
+    const complement  = target -number;
+    if (complement in seenNumbers)return true;
+    seenNumbers[number] = true;
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  Runtime : 0(n^2)
+  space :0(n)
 */
 
 /* 
@@ -12,6 +21,11 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  create an object to keep track of numbers we've arleady seen 
+  iterate through each numberin the array for the current num ,identify a  complment
+  that adds to the target (comp =target - num)
+  if so ,return true 
+  otherwise ,add that number to the object
 */
 
 // You can run `node index.js` to view these console logs
